@@ -9,5 +9,4 @@ public class CourseLesson14TestingHomeworkApplication {
     public static void main(String[] args) {
         SpringApplication.run(CourseLesson14TestingHomeworkApplication.class, args);
     }
-
 }
