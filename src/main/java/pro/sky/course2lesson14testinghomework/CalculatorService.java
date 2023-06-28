@@ -1,4 +1,4 @@
-package pro.sky.courselesson14testinghomework;
+package pro.sky.course2lesson14testinghomework;
 
 import org.springframework.stereotype.Service;
 
@@ -12,10 +12,10 @@ public class CalculatorService {
 
     public String welcome() {
         return "<b>Welcome to simple calculator!</b><br><br>" +
-                "<a href=\"http://localhost:8080/calculator/plus/?num1=1&num2=1\"> Plus </a> | " +
-                "<a href=\"http://localhost:8080/calculator/minus/?num1=1&num2=1\"> Minus </a> | " +
-                "<a href=\"http://localhost:8080/calculator/multiply/?num1=1&num2=1\"> Multiply </a> | " +
-                "<a href=\"http://localhost:8080/calculator/divide/?num1=1&num2=1\"> Divide </a>";
+                "<a href=\"http://localhost:8080/calculator/plus/?num1=5&num2=5\"> Plus </a> | " +
+                "<a href=\"http://localhost:8080/calculator/minus/?num1=5&num2=5\"> Minus </a> | " +
+                "<a href=\"http://localhost:8080/calculator/multiply/?num1=5&num2=5\"> Multiply </a> | " +
+                "<a href=\"http://localhost:8080/calculator/divide/?num1=5&num2=5\"> Divide </a>";
     }
 
     public String plus(Integer num1, Integer num2) {
