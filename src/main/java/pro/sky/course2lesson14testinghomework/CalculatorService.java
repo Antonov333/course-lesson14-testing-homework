@@ -6,30 +6,33 @@ import org.springframework.stereotype.Service;
 public class CalculatorService {
 
     public String hint() {
+        System.out.println("<b>Hi! <br><br>Welcome to simple <a href=\"http://localhost:8080/calculator/\">Calculator</a>!");
         return
                 "<b>Hi! <br><br>Welcome to simple <a href=\"http://localhost:8080/calculator/\">Calculator</a>!";
     }
 
-    public String welcome() {
-        return "<b>Welcome to simple calculator!</b><br><br>" +
+    public String welcome() { // covered by test
+        String string = "<b>Welcome to simple calculator!</b><br><br>" +
                 "<a href=\"http://localhost:8080/calculator/plus/?num1=5&num2=5\"> Plus </a> | " +
                 "<a href=\"http://localhost:8080/calculator/minus/?num1=5&num2=5\"> Minus </a> | " +
                 "<a href=\"http://localhost:8080/calculator/multiply/?num1=5&num2=5\"> Multiply </a> | " +
                 "<a href=\"http://localhost:8080/calculator/divide/?num1=5&num2=5\"> Divide </a>";
+        return string;
     }
 
-    public String plus(Integer num1, Integer num2) {
+    public String plus(Integer num1, Integer num2) { // covered by test
         int code = checkParamsCode(num1, num2);
         String result = "<b>Plus</b><br><br>" + checkParamsString(code);
         if (code == 0) {
             result = result.concat(
                     num1 + " + " + num2 + " = " + (num1 + num2));
         }
+        ;
         return result;
     }
 
 
-    public String divide(Integer num1, Integer num2) {
+    public String divide(Integer num1, Integer num2) { // covered by tests
         int code = checkParamsCode(num1, num2);
         String result = "<b>Division</b><br><br>" + checkParamsString(code);
         if (code == 0 && num2.intValue() == 0) {
@@ -44,7 +47,7 @@ public class CalculatorService {
         return result;
     }
 
-    public String minus(Integer num1, Integer num2) {
+    public String minus(Integer num1, Integer num2) { // covered by test
         int code = checkParamsCode(num1, num2);
         String result = "<b>Minus</b><br><br>" + checkParamsString(code);
         if (code == 0) {
@@ -53,7 +56,7 @@ public class CalculatorService {
         return result;
     }
 
-    public String multiply(Integer num1, Integer num2) {
+    public String multiply(Integer num1, Integer num2) { // covered by test
         int code = checkParamsCode(num1, num2);
         String result = "<b>Multiply</b><br><br>" + checkParamsString(code);
         if (code == 0) {
