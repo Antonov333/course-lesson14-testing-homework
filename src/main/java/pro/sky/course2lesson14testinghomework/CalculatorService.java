@@ -34,7 +34,8 @@ public class CalculatorService {
         String result = "<b>Division</b><br><br>" + checkParamsString(code);
         if (code == 0 && num2.intValue() == 0) {
             code = code + 1000;
-            result = result.concat(" -- ERROR: division by zero");
+//            result = result.concat(" -- ERROR: division by zero");
+            throw new DivByZeroException("DivByZeroException");
         }
         if (code == 0) {
             result = result.concat(num1 + " / " + num2 + " = "
