@@ -21,19 +21,18 @@ public class CalculatorServiceParameterizedTest {
     public void plusTestX5(int int1) {
         Integer num1 = Integer.valueOf(int1);
         Integer num2 = 5;
-        Integer sum = num1 + num2;
-        String expected = "<b>Plus</b><br><br>" + num1 + " + " + num2 + " = " + sum.toString();
-        String actual = calculatorService.plus(num1, num2);
+        Integer expected = num1 + num2;
+
+        Integer actual = calculatorService.plus(num1, num2);
         assertEquals(expected, actual);
     }
 
-    @DisplayName("Parameterized test for plus(num1, num2) method")
+    @DisplayName("Parameterized test for plus(num1, num2) method with stream")
     @ParameterizedTest(name = "{index} => num1={0}, num2={1}")
     @MethodSource("numsProvider")
     public void plusTestWithStream(Integer num1, Integer num2) {
-        Integer sum = num1 + num2;
-        String expected = "<b>Plus</b><br><br>" + num1.toString() + " + " + num2.toString() + " = " +
-                sum.toString();
+        Integer expected = num1 + num2;
+
         assertEquals(expected, calculatorService.plus(num1, num2));
 
     }
@@ -51,17 +50,16 @@ public class CalculatorServiceParameterizedTest {
     @MethodSource("numsProvider")
     public void minusParameterizedTest(Integer num1, Integer num2) {
         Integer dif = num1 - num2;
-        String expected = "<b>Minus</b><br><br>" + num1 + " - " + num2 + " = " +
-                dif;
-        assertEquals(expected, calculatorService.minus(num1, num2));
+        assertEquals(dif, calculatorService.minus(num1, num2));
     }
 
     @DisplayName("Parameterized test for multiply(num1, num2) method")
     @ParameterizedTest(name = "{index} => num1={0}, num2={1}")
     @MethodSource("numsProvider")
     public void multiplyParameterizedTest(Integer num1, Integer num2) {
-        Integer product = num1 * num2;
-        String expected = "<b>Multiply</b><br><br>" + num1 + " * " + num2 + " = " + product;
+        int product = num1 * num2;
+
+        assertEquals(product, calculatorService.multiply(num1, num2));
     }
 
     @DisplayName("Parameterized test for divide(num1, num2) method")
@@ -69,7 +67,7 @@ public class CalculatorServiceParameterizedTest {
     @MethodSource("numsProvider")
     public void divideParameterizedTest(Integer num1, Integer num2) {
         Integer quotient = num1 / num2;
-        String expected = "<b>Divide</b><br><br>" + num1 + " / " + num2 + " = " + quotient;
+        assertEquals((int) num1 / num2, calculatorService.divide(num1, num2));
     }
 
 }

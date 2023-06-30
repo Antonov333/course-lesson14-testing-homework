@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorServiceTest {
 
-    TestData dataSet5_5 = new TestData(5, 5);
-    TestData dataSet15_15 = new TestData(15, 15);
     private CalculatorService calculatorService = new CalculatorService();
 
     @Test
@@ -27,21 +25,15 @@ public class CalculatorServiceTest {
     @Test
     public void plusTest() {
 
-        String expected = "<b>Plus</b><br><br>5 + 5 = 10";
-        assertEquals(expected, calculatorService.plus(5, 5));
-
-        expected = "<b>Plus</b><br><br>15 + 15 = 30";
-        assertEquals(expected, calculatorService.plus(15, 15));
+        assertEquals(10, calculatorService.plus(5, 5));
+        assertEquals(30, calculatorService.plus(15, 15));
 
     }
 
     @Test
     public void divideTest() {
-        String expected = "<b>Division</b><br><br>5 / 5 = 1";
-        assertEquals(expected, calculatorService.divide(5, 5));
-
-        expected = "<b>Division</b><br><br>15 / 15 = 1";
-        assertEquals(expected, calculatorService.divide(15, 15));
+        assertEquals(1, calculatorService.divide(5, 5));
+        assertEquals(1, calculatorService.divide(15, 15));
     }
 
     @Test
@@ -51,37 +43,13 @@ public class CalculatorServiceTest {
 
     @Test
     public void minusTest() {
-        String expected = "<b>Minus</b><br><br>5 - 5 = 0";
-        assertEquals(expected, calculatorService.minus(5, 5));
-
-        expected = "<b>Minus</b><br><br>15 - 1 = 14";
-        assertEquals(expected, calculatorService.minus(15, 1));
+        assertEquals(0, calculatorService.minus(5, 5));
+        assertEquals(14, calculatorService.minus(15, 1));
     }
 
     @Test
     public void multiplyTest() {
-        String expected = "<b>Multiply</b><br><br>5 * 5 = 25";
-        assertEquals(expected, calculatorService.multiply(5, 5));
-
-        expected = "<b>Multiply</b><br><br>15 * 15 = 225";
-        assertEquals(expected, calculatorService.multiply(15, 15));
-    }
-
-    class TestData {
-        private Integer num1;
-        private Integer num2;
-
-        public TestData(int n1, int n2) {
-            num1 = Integer.valueOf(n1);
-            num2 = Integer.valueOf(n2);
-        }
-
-        public Integer getNum1() {
-            return num1;
-        }
-
-        public Integer getNum2() {
-            return num2;
-        }
+        assertEquals(25, calculatorService.multiply(5, 5));
+        assertEquals(225, calculatorService.multiply(15, 15));
     }
 }

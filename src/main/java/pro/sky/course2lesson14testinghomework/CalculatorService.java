@@ -20,50 +20,46 @@ public class CalculatorService {
         return string;
     }
 
-    public String plus(Integer num1, Integer num2) { // covered by test
+    public Integer plus(Integer num1, Integer num2) { // test code fixed
         int code = checkParamsCode(num1, num2);
-        String result = "<b>Plus</b><br><br>" + checkParamsString(code);
-        if (code == 0) {
-            result = result.concat(
-                    num1 + " + " + num2 + " = " + (num1 + num2));
+        if (code != 0) {
+            throw new IllegalArgumentException(checkParamsString(code));
         }
-        ;
-        return result;
+        return num1 + num2;
     }
 
 
-    public String divide(Integer num1, Integer num2) { // covered by tests
+    public int divide(Integer num1, Integer num2) { // tests
         int code = checkParamsCode(num1, num2);
-        String result = "<b>Division</b><br><br>" + checkParamsString(code);
-        if (code == 0 && num2 == 0) {
-            code = code + 1000;
-//            result = result.concat(" -- ERROR: division by zero");
+
+        if (code != 0) {
+            throw new IllegalArgumentException(checkParamsString(code));
+        }
+
+        if (num2 == 0) {
             throw new DivByZeroException("DivByZeroException");
         }
-        if (code == 0) {
-            result = result.concat(num1 + " / " + num2 + " = "
-                    + num1 / num2);
-        }
+
+        int result = num1 / num2;
         return result;
     }
 
-    public String minus(Integer num1, Integer num2) { // covered by test
+    public int minus(Integer num1, Integer num2) {
         int code = checkParamsCode(num1, num2);
-        String result = "<b>Minus</b><br><br>" + checkParamsString(code);
-        if (code == 0) {
-            result = result.concat(num1 + " - " + num2 + " = " + (num1 - num2));
+//        String result = "<b>Minus</b><br><br>" + checkParamsString(code);
+        if (code != 0) {
+            throw new IllegalArgumentException(checkParamsString(code));
         }
-        return result;
+        return num1 - num2;
     }
 
-    public String multiply(Integer num1, Integer num2) { // covered by test
+    public int multiply(Integer num1, Integer num2) {
         int code = checkParamsCode(num1, num2);
-        String result = "<b>Multiply</b><br><br>" + checkParamsString(code);
-        if (code == 0) {
-            result = result.concat(
-                    num1 + " * " + num2 + " = " + num1 * num2);
+//        String result = "<b>Multiply</b><br><br>" + checkParamsString(code);
+        if (code != 0) {
+            throw new IllegalArgumentException(checkParamsString(code));
         }
-        return result;
+        return num1 * num2;
     }
 
     private int checkParamsCode(Object p1, Object p2) {
