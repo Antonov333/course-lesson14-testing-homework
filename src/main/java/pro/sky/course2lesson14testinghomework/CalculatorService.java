@@ -35,7 +35,7 @@ public class CalculatorService {
     public String divide(Integer num1, Integer num2) { // covered by tests
         int code = checkParamsCode(num1, num2);
         String result = "<b>Division</b><br><br>" + checkParamsString(code);
-        if (code == 0 && num2.intValue() == 0) {
+        if (code == 0 && num2 == 0) {
             code = code + 1000;
 //            result = result.concat(" -- ERROR: division by zero");
             throw new DivByZeroException("DivByZeroException");
